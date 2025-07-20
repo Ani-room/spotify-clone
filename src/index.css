@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure main content area can scroll */
+main {
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Hide scrollbars for main content and Now Playing panel */
+.main-content, .now-playing-panel, .overflow-y-auto {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.main-content::-webkit-scrollbar, .now-playing-panel::-webkit-scrollbar, .overflow-y-auto::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+input[type=range].spotify-slider {
+  width: 96px;
+  height: 4px;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input[type=range].spotify-slider:focus {
+  outline: none;
+}
+input[type=range].spotify-slider::-webkit-slider-runnable-track {
+  height: 4px;
+  background: linear-gradient(to right, #fff var(--val, 0%), #374151 var(--val, 0%));
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+input[type=range].spotify-slider:hover::-webkit-slider-runnable-track,
+input[type=range].spotify-slider:focus::-webkit-slider-runnable-track,
+input[type=range].spotify-slider:active::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #1db954 var(--val, 0%), #374151 var(--val, 0%));
+}
+input[type=range].spotify-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1db954;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  margin-top: -5px;
+  transition: border 0.2s;
+}
+input[type=range].spotify-slider:active::-webkit-slider-thumb {
+  border: 2px solid #1ed760;
+}
+input[type=range].spotify-slider::-ms-fill-lower {
+  background: #1db954;
+}
+input[type=range].spotify-slider::-ms-fill-upper {
+  background: #374151;
+}
+input[type=range].spotify-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1db954;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  transition: border 0.2s;
+}
+input[type=range].spotify-slider:active::-moz-range-thumb {
+  border: 2px solid #1ed760;
+}
+input[type=range].spotify-slider::-moz-range-track {
+  height: 4px;
+  background: linear-gradient(to right, #fff var(--val, 0%), #374151 var(--val, 0%));
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+input[type=range].spotify-slider:hover::-moz-range-track,
+input[type=range].spotify-slider:focus::-moz-range-track,
+input[type=range].spotify-slider:active::-moz-range-track {
+  background: linear-gradient(to right, #1db954 var(--val, 0%), #374151 var(--val, 0%));
+}
+input[type=range].spotify-slider::-ms-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1db954;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  transition: border 0.2s;
+}
+input[type=range].spotify-slider:active::-ms-thumb {
+  border: 2px solid #1ed760;
+}
+input[type=range].spotify-slider:focus::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, #1db954 var(--val, 0%), #374151 var(--val, 0%));
+}
+input[type=range].spotify-slider::-ms-tooltip {
+  display: none;
+}
+input[type=range].spotify-slider {
+  --val: 70%; /* fallback */
+}
